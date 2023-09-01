@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block content %}
+    <div class="text-center">
+    <h1>Transaction Detail</h1>
+    
+    <h2>{{ transaction.member.name }} - {{ transaction.book.title }}</h2>
+    <p>Issue Date: {{ transaction.issue_date }}</p>
+    <p>Return Date: {{ transaction.return_date }}</p>
+    <p>Fee: {{ transaction.fee }}</p>
+
+    <button class="btn btn-success"><a href="{% url 'transaction_list' %}" style="text-decoration: none; color: white;">Back to Transaction List</a></button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</div>
+{% endblock %}
+

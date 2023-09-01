@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Return Book</title>
+</head>
+<body>
+    <h1>Return Book</h1>
+    <p>Book: {{ transaction.book.title }}</p>
+    <p>Member: {{ transaction.member.name }}</p>
+    <p>Issue Date: {{ transaction.issue_date }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <label for="return_date">Return Date:</label>
+        <input type="date" name="return_date" id="return_date" required>
+        <input type="submit" value="Return Book">
+    </form>
+</body>
+</html>

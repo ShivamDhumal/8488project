@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="container">
+    <div class="row"> 
+        <h2 class="text-center">Add Memeber</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <label for="name" class="form-label" style="text-align: left;">Name:</label>
+                    <input type="text" class="form-control" name="name" required>
+                </div>
+                <div class="col-lg-4">
+                    <label for="email" class="form-label" style="text-align: left;">Email:</label>
+                    <input type="email" class="form-control" name="email" required><br>
+                </div>
+                <div class="d-block text-center">
+                    <button type="submit" class="btn mb-3 w-50 btn-success" style="text-decoration: none; color: white;">Add Member</button>
+
+                    <button class="btn btn-secondary w-50"><a href="{% url 'member_list' %}" style="text-decoration: none; color: white;">Back to Member List</a></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
