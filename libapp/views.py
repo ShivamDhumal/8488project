@@ -4,9 +4,19 @@ from .models import Book
 from django.http import HttpResponse
 
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Book, Member, Transaction
 from django.http import HttpResponse
+from datetime import datetime
+
+from django.shortcuts import render, redirect
+from .models import Book, Member, Transaction
+from django.contrib import messages
+
+from django.shortcuts import render, redirect
+from .models import Book, Member, Transaction
+from django.contrib import messages
+
 
 def book_list(request):
     books = Book.objects.all()
@@ -17,13 +27,7 @@ def book_detail(request, book_id):
     return render(request, 'book_detail.html', {'book': book})
 
 
-from django.shortcuts import render, redirect
-from .models import Book, Member, Transaction
-from django.contrib import messages
 
-from django.shortcuts import render, redirect
-from .models import Book, Member, Transaction
-from django.contrib import messages
 
 def issue_book(request):
     if request.method == 'POST':
@@ -54,10 +58,6 @@ def issue_book(request):
     
     return render(request, 'issue_book.html', {'members': members, 'books': books})
 
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Transaction
-from django.contrib import messages
-
 def delete_transaction(request, transaction_id):
     transaction = get_object_or_404(Transaction, pk=transaction_id)
 
@@ -68,11 +68,6 @@ def delete_transaction(request, transaction_id):
 
     return render(request, 'delete_transaction.html', {'transaction': transaction})
 
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Transaction, Book
-from django.contrib import messages
-
-from datetime import datetime
 
 def return_book(request, transaction_id):
     transaction = get_object_or_404(Transaction, pk=transaction_id)
@@ -108,11 +103,6 @@ def search_books(request):
         return render(request, 'library/search_results.html', {'books': books})
     return render(request, 'search_books.html')
 
-
-import requests
-from django.shortcuts import render, redirect
-from .models import Book
-from django.http import HttpResponse
 
 def import_books(request):
     if request.method == 'POST':
@@ -167,7 +157,6 @@ def import_books(request):
     return render(request, 'import_books.html')
 
 
-from .models import Member
 
 def member_list(request):
     members = Member.objects.all()
@@ -187,8 +176,6 @@ def add_member(request):
 
     return render(request, 'add_member.html')
 
-from django.shortcuts import render, redirect
-from .models import Transaction
 
 def transaction_list(request):
     transactions = Transaction.objects.all()
